@@ -31,7 +31,31 @@ const viewDetails = (id) => {
   const url = `https://fakestoreapi.com/products/${id}`
   fetch(url)
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(data => addDetails(data))
+}
+const addDetails = (product) => {
+  let div1 = document.createElement('div');
+  div1.classList.add('details-wrapper')
+  div1.innerHTML = `
+  <img class="product-details-image" src=${product.image}>
+  <div>
+    <h3>${product.title}</h3>
+    <p><small class='rating'><span class='star'>&#9733; &#9733; &#9733;	&#9733; &#9734;</span> ${product.rating.count} Ratings | Avarage: ${product.rating.rate}</small></p>
+    <p> Brand: No brand </p>
+    <h2 class='mt-5'>Price: $ ${product.price}</h2>
+    <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+    <button class="btn btn-primary text-center">Buy Now</button>
+  </div>
+  `;
+  let div2 = document.createElement('div');
+  div2.classList.add('details');
+  div2.innerHTML = `
+  <h3 class='header'>Product details of ${product.title}</h3>
+  <p class='details-body'>${product.description}</p>
+  `;
+  document.getElementById('product-wrapper').textContent = '';
+  document.getElementById('root-details').appendChild(div1);
+  document.getElementById('root-details').appendChild(div2);
 }
 
 let count = 0;
