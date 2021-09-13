@@ -11,11 +11,12 @@ body {
 header{
   height: 100px;
   display: flex !important;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 50px;
   background-color: #fff;
 }
+
 .search-field {
   border: none;
   border-radius: 50px;
@@ -90,6 +91,7 @@ header{
  display: flex;
  justify-content: center;
  align-items: center;
+ overflow: hidden;
 }
 .product-details-image{
   width: 250px;
@@ -113,6 +115,7 @@ header{
 .details-body{
   padding: 7px;
   text-align: justify;
+  margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 768px) {

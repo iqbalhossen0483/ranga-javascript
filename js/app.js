@@ -57,6 +57,9 @@ const addDetails = (product) => {
   document.getElementById('root-details').appendChild(div1);
   document.getElementById('root-details').appendChild(div2);
 }
+const goHome = () => {
+  location.reload();
+}
 
 let count = 0;
 const addToCart = (id, price) => {
